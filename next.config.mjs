@@ -18,7 +18,6 @@ const nextConfig = {
     return config
   },
   // Production optimizations
-  swcMinify: true,
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
