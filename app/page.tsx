@@ -35,7 +35,7 @@ export default function Home() {
           backgroundImage: `url('${bgImage}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundBlend: "multiply",
+          backgroundBlendMode: "multiply",
         }}
       >
         {/* Dark overlay */}
@@ -88,11 +88,11 @@ export default function Home() {
             </Link>
             <Link
               href="/games"
-              className="text-[#9D4EDD] text-lg md:text-3xl font-bold hover:text-gray-300 transition-colors"
+              className="text-white text-lg md:text-3xl font-bold hover:text-gray-300 transition-colors"
               onMouseEnter={() => handleMouseEnter("games")}
               onMouseLeave={handleMouseLeave}
             >
-              GAM
+              GAMES
             </Link>
             <Link
               href="/about"
