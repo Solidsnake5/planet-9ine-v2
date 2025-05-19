@@ -1,11 +1,19 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useRouter } from "next/navigation"
 import { ArrowRight } from "lucide-react"
+import dynamic from 'next/dynamic'
+
+// Dynamically import the video component
+const VideoBackground = dynamic(() => import('@/components/VideoBackground'), {
+  ssr: false,
+  loading: () => (
+    <div className="absolute w-full h-full bg-black animate-pulse" />
+  ),
+})
 
 // This page intentionally doesn't include the StickyNav component
-
 export default function EntryPage() {
   const router = useRouter()
   const [videoLoaded, setVideoLoaded] = useState(false)
@@ -46,17 +54,9 @@ export default function EntryPage() {
   return (
     <div className="fixed inset-0 w-full h-full overflow-hidden">
       {/* Video Background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute w-full h-full object-cover"
-        onLoadedData={() => setVideoLoaded(true)}
-      >
-        <source src="/videos/space-background.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <Suspense fallback={<div className="absolute w-full h-full bg-black animate-pulse" />}>
+        <VideoBackground onLoadedData={() => setVideoLoaded(true)} />
+      </Suspense>
 
       {/* Dark overlay - made darker for better text visibility */}
       <div className="absolute inset-0 bg-black/75 z-10"></div>

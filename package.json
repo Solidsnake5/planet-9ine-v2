@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true next build",
+    "clean": "rm -rf .next",
+    "prod:build": "npm run clean && next build",
+    "prod:start": "next start -p $PORT"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
