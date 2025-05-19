@@ -88,11 +88,11 @@ export default function Home() {
             </Link>
             <Link
               href="/games"
-              className="text-white text-lg md:text-3xl font-bold hover:text-gray-300 transition-colors"
+              className="text-[#9D4EDD] text-lg md:text-3xl font-bold hover:text-gray-300 transition-colors"
               onMouseEnter={() => handleMouseEnter("games")}
               onMouseLeave={handleMouseLeave}
             >
-              GAMES
+              GAM
             </Link>
             <Link
               href="/about"
